@@ -1,1 +1,0 @@
-[Imagefile](https://coursework.cs.duke.edu/CompSci308_2017Fall/cellsociety_team16/raw/master/20170914_180033.jpg)
