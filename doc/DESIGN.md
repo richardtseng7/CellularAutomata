@@ -22,6 +22,8 @@ There are a number of components we know our program will include:
  6. A file IO class (preliminary name: InitialStateReader) that will readin the XML data and initialize the grid of cells.
  7. A slider class which will contain a slider UI element and overloaded functionality to affect the simulation. (e.g. a slider to control the % of empty spaces in a simulation)
 
+A simple UML diagram showing the relationship between these classes can be seen [here](./images/simple-uml.png).
+
 ## User Interface
 In order for the user to interact with our program, there will be sliders, buttons, and a drop down menu. All of these pieces will be established in our Manager class. Since the sliders and buttons will be determined by the type of simulation that will be run, when the Manager calls the File IO object to set up everything, the sliders and buttons will also be created, specifically for the desired simulation. Some basic buttons that will always be implemented are Pause, Reset, Step, and Start. A universal slider will be delay time in milliseconds. Several drop down menu bars will also be implemented to give the user more control over the game. Some features will include loading a new file and “fastforwarding” through steps. Some erroneous situations that could occur would be the user importing a bad XML file. If the file is not in the desired format, or the document is not of the correct form, a prompt for the user to insert a new, correctly formatted document will be issued.
 
