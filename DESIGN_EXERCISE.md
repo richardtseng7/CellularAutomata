@@ -19,7 +19,7 @@
     * Received a set/list of blocks that were updated (likely from the StateProcessor) and changes their colors
 
 ## Class-Responsibility-Collaborator Cards
-[CRC Cards](https://coursework.cs.duke.edu/CompSci308_2017Fall/cellsociety_team16/raw/master/20170914_180033.jpg)
+[CRC Cards](https://coursework.cs.duke.edu/CompSci308_2017Fall/cellsociety_team16/raw/master/images/crc-cards.jpg)
 
 ## Use Cases 
 * Apply the rules to a middle cell: set the next state of a cell to dead by counting its number of neighbors using the Game of Life rules for a cell in the middle (i.e., with all its neighbors)
