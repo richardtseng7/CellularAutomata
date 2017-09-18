@@ -32,7 +32,8 @@ In order for the user to interact with our program, there will be sliders, butto
 * The abstract cell class stores information, such as current state, future state (allowing for the cell to be updated), list of neighbors, rules. The cell will also have an updateState method, which is called in the state processor class with parameters such as the list of empty positions. The cell class can be extended to account for different types of cells.
 * The  display class creates the 2D grid, where the cells are displayed. It also contains the objects necessary to display the toolbar, sliders, buttons, etc. It will also handle the main menu UI.
 * The file I/O class handles reading in the XML formatted file that contains the initial settings for a simulation. It will pass the title of the simulation, the simulation’s author, settings for global configuration parameters, the dimensions of the grid, and the initial configuration of the states for the cells in the grid to the Manager class. It will use the built-in Java classes to parse the XML file.
-* Steps needed to complete the use cases: 
+
+Steps needed to complete the use cases:
 * Apply the rules to a middle cell: set the next state of a cell to dead by counting its number of neighbors using the Game of Life rules for a cell in the middle (i.e., with all its neighbors)
      * Inside a method in the StateProcessor class, have a for-each loop that will iterate over the cells and call a method updateState() on each. 
      * The cell will then check its list of rules by iterating over its set of neighbors and determining from these neighbors’ states the next state it should be in. 
@@ -51,18 +52,18 @@ In order for the user to interact with our program, there will be sliders, butto
 
 ## Team Responsibilities
 
-#####Richard
+##### Richard
 * Primary: File I/O, XML Generator
 * Secondary: Cell
 
-#####Santo:
+##### Santo:
 * Primary: Display
 * Secondary: Manager
 
-#####Michael
+##### Michael
 * Primary: Responsible for creating the manager and processor classes. My role will involve oversight of the entire program, making sure that everyone’s pieces area compatible with everyone else’s. 
 
-#####Ben 
+##### Ben 
 * Primary: Responsible for creating the abstract cell class and the cell classes for each type of simulation. This includes programming the cell update behavior. 
 * Secondary: File I/O
 
