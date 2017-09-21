@@ -32,5 +32,3 @@ Discussion Group:
     e. *Constructing cells* (cells): pass the cell its initial state and locationwithin the grid, from which it will be able to construct its own list of neighbors. 
 2. I'm most excited to handle the rule-checking/next state identification. 
 3. I'm most worried about working specifically on the Segregation cell class, as this will require knowledge of which states are in the 'empty' state. Maintaining flexibility of the overall design while also keeping track of this 'empty' state list might require extension of the state processor. 
-
-(We ran out of time)
