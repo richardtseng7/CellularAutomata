@@ -24,7 +24,6 @@ Discussion Group:
 
 ## Part 3
 1. Use cases:
-
     a. *Identifying next state* (cells): check the cell's current state and the state of its neighbors and compare these against the rules for the simulation type, which will then yield the next state. The next state will be stored in a field *nextState*, so as to not affect other cells' next state computations 
     b. *Transitioning state* (cells): simply change the field *currentState* to *nextState*
     c. *Updating all cells' states* (state processor): iterate over allcells in the grid and have them identify their next state. Then, in a separate loop, have the cells transition to the next state.
