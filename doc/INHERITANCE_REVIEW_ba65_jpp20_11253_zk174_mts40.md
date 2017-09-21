@@ -25,11 +25,12 @@ Discussion Group:
 ## Part 3
 
 Use cases:
-a. *Identifying next state* (cells): check the cell's current state and the state of its neighbors and compare these against the rules for the simulation type, which will then yield the next state. The next state will be stored in a field *nextState*, so as to not affect other cells' next state computations 
-b. *Transitioning state* (cells): simply change the field *currentState* to *nextState*
-c. *Updating all cells' states* (state processor): iterate over allcells in the grid and have them identify their next state. Then, in a separate loop, have the cells transition to the next state
-d. *Displaying state transtitions* (state processor): pass the updated grid back to the display class and have it display the grid according to the new states. 
-e. *Constructing cells* (cells): pass the cell its initial state and locationwithin the grid, from which it will be able to construct its own list of neighbors. 
+1. *Identifying next state* (cells): check the cell's current state and the state of its neighbors and compare these against the rules for the simulation type, which will then yield the next state. The next state will be stored in a field *nextState*, so as to not affect other cells' next state computations 
+2. *Transitioning state* (cells): simply change the field *currentState* to *nextState*
+3. *Updating all cells' states* (state processor): iterate over allcells in the grid and have them identify their next state. Then, in a separate loop, have the cells transition to the next state
+4. *Displaying state transtitions* (state processor): pass the updated grid back to the display class and have it display the grid according to the new states. 
+5. *Constructing cells* (cells): pass the cell its initial state and locationwithin the grid, from which it will be able to construct its own list of neighbors. 
 
+Other questions:
 2. I'm most excited to handle the rule-checking/next state identification. 
 3. I'm most worried about working specifically on the Segregation cell class, as this will require knowledge of which states are in the 'empty' state. Maintaining flexibility of the overall design while also keeping track of this 'empty' state list might require extension of the state processor. 
