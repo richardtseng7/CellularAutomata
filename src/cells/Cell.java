@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author Ben Schwennesen
  */
-public abstract class Cell { //extends Rectangle {
+public abstract class Cell {
 
     /**
      * Stores a list of this cells neighbors. Depending on the location of this cell, neighbors
@@ -38,11 +38,8 @@ public abstract class Cell { //extends Rectangle {
      * Construct a new cell: instantiate the neighbors list. The neighbors list cannot be
      * populated here since all the cells in the simulation must be created first.
      */
-    public Cell() { //Color cellFill, int gridX, int gridY, int sideLength) {
-        neighbors = new ArrayList<Cell>();
-        //setX(gridX * sideLength);
-        //setY(gridY * sideLength);
-        //setFill(cellFill);
+    public Cell() {
+        neighbors = new ArrayList<>();
     }
 
     /**
