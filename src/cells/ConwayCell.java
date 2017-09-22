@@ -15,7 +15,7 @@ import resources.PropertiesGetter;
 public class ConwayCell extends Cell {
 
     /** Dead and live are the two types of states in the Game of Life */
-    private final enum STATES {
+    private enum States {
         DEAD,
         LIVE
     }
@@ -24,8 +24,8 @@ public class ConwayCell extends Cell {
      * Construct a Game of Life/Conway cell. Conway cells do not require extra instantiation logic
      * aside from that performed in the basic abstract cell.
      */
-    public ConwayCell() {
-        super();
+    public ConwayCell(Object initialState) {
+        super(initialState);
     }
 
     /**
@@ -33,11 +33,11 @@ public class ConwayCell extends Cell {
      * simulation and the states of the cell's neighbors.
      */
     public void calculateNextState() {
-        int liveNeighborCount = countNeighborsInState(STATES.LIVE);
-        if (getCurrentState() == STATES.LIVE && (liveNeighborCount < 2 || liveNeighborCount > 3)) {
-            setNextState(STATES.DEAD);
-        } else if (getCurrentState() == STATES.DEAD && liveNeighborCount == 3) {
-            setNextState(STATES.LIVE);
+        int liveNeighborCount = countNeighborsInState(States.LIVE);
+        if (getCurrentState() == States.LIVE && (liveNeighborCount < 2 || liveNeighborCount > 3)) {
+            setNextState(States.DEAD);
+        } else if (getCurrentState() == States.DEAD && liveNeighborCount == 3) {
+            setNextState(States.LIVE);
         }
         // otherwise, next state is already equal to current state, hence no need to update it
     }

@@ -21,22 +21,23 @@ public abstract class Cell {
     private final List<Cell> neighbors;
 
     /**
-     * Represents the state this cell is in at the current step of the simulation.
+     * Enum object representing the state this cell is in at the current step of the simulation.
      */
-    private enum currentState;
+    private Object currentState;
 
     /**
-     * Represents the state this cell should be in the next step of the simulation, after calling
-     * transitionState().
+     * Enum object representing the state this cell should be in the next step of the simulation,
+     * after calling transitionState().
      */
-    private enum nextState;
+    private Object nextState;
 
     /**
      * Construct a new cell: instantiate the neighbors list. The neighbors list cannot be
      * populated here since all the cells in the simulation must be created first.
      */
-    public Cell() {
+    public Cell(Object initialState) {
         neighbors = new ArrayList<>();
+        this.currentState = initialState;
     }
 
     /**
@@ -60,7 +61,7 @@ public abstract class Cell {
     /**
      * Get a count of how many adjacent cells are in a particular state.
      *
-     * @param state - the enum representing the state of which a neighbor count is needed
+     * @param state - the enum Object representing the state of which a neighbor count is needed
      * @return the number of neighbors of this cell currently in the passed state
      */
     public int countNeighborsInState(Enum state) {
@@ -99,23 +100,43 @@ public abstract class Cell {
     }
 
     /**
+     * Get the number of neighbors of this cell.
+     *
+     * @return an integer representing the number of cells adjacent to this cell in the grid
+     */
+    public int getNumberOfNeighbors() {
+        return neighbors.size();
+    }
+
+    /**
      * Get the current state of this cell. Used for determining the next state of this cell's
      * neighbors, according to the rules of the extending cell's simulation.
      *
-     * @return an enum representing the current state of this cell
+     * @return an enum Object representing the current state of this cell
      */
-    public enum getCurrentState() {
+    public Object getCurrentState() {
         return currentState;
     }
 
     /**
+     * Get the next state of the cell.
+     *
+     * @return nextState - the enum Object representing the state the cell should transition to at
+     *                  the next step of the simulation
+     */
+    public Object getNextState() { return nextState; }
+
+    /**
      * Set the next state of the cell.
      *
-     * @param nextState - the enum representing the state the cell should transition to at the
-     *                  next step of the simulation
+     * @param nextState - the enum Object representing the state the cell should transition to at
+     *                  the next step of the simulation
      */
-    public void setNextState(enum nextState) {
+    public void setNextState(Object nextState) {
         this.nextState = nextState;
     }
+
+
+
 
 }
