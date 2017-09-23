@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Abstract cell object extended once for each simulation implemented. The purpose of the class
- * is to store the state that each cell in a simulation is in, as well as to store, calculate,
- * and transition to the *next* state the cell should be in. The next state the cell should be in
- * is determined according to the rules of each individual simulation; that is, the logic for
- * calculating the next state is implemented in each subclass.
+ * Abstract cell object extended once for each simulation implemented.
+ *
+ * The purpose of the class is to store the state that each cell in a simulation is in, as well
+ * as to store, calculate, and transition to the next state the cell should be in.
+ *
+ * The next state the cell should be in is determined according to the rules of each individual
+ * simulation; that is, the logic for calculating the next state is implemented in each subclass.
  *
  * @author Ben Schwennesen
  */
@@ -64,7 +66,7 @@ public abstract class Cell {
      * @param state - the enum Object representing the state of which a neighbor count is needed
      * @return the number of neighbors of this cell currently in the passed state
      */
-    public int countNeighborsInState(Enum state) {
+    public int countNeighborsInState(Object state) {
         int stateCount = 0;
         for (Cell neighbor : getNeighbors()) {
             if (neighbor.getCurrentState() == state) {
@@ -133,8 +135,4 @@ public abstract class Cell {
     public void setNextState(Object nextState) {
         this.nextState = nextState;
     }
-
-
-
-
 }
