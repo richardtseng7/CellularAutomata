@@ -14,25 +14,18 @@ import java.util.Properties;
  */
 public final class PropertiesGetter {
 
-    /**
-     * name of the file storing the properties for the breakout game variant
-     */
-    private static final String PROPERTIES_FILE = "simulation.properties";
+    /** file storing the properties for the grid of cells */
+    private static final String PROPERTIES_FILE = "simulations.properties";
 
-    /**
-     * this class uses java.util.Properties as a base and extends its functionality
-     */
+    /** use java.util.Properties as a base and extends its functionality */
     private static final Properties PROPERTIES;
 
-    /**
-     * Keys used to access the configuration values in the .properties file
-     */
+    /** keys used to access the configuration values in the .properties file */
     /** grid configuration keys */
     private static final String GRID_DIMENSION_KEY = "grid-dimension";
     private static final String CELL_SIZE_KEY = "cell-size";
-    /** Conway configuration keys */
-    private static final String CONWAY_DEAD_KEY = "dead-state";
-    private static final String CONWAY_LIVE_KEY = "live-state";
+    /** spreading-fire configuration keys */
+    private static final String DEFAULT_CATCH_FIRE_PROBABILITY_KEY = "default-catch-fire-rate";
 
     /**
      * Blank, private constructor to ensure no other class tries to create an instance of this
@@ -46,7 +39,8 @@ public final class PropertiesGetter {
     static {
         PROPERTIES = new Properties();
         try {
-            PROPERTIES.load(PropertiesGetter.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE));
+            PROPERTIES.load(PropertiesGetter.class.getClassLoader()
+                    .getResourceAsStream(PROPERTIES_FILE));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -70,6 +64,21 @@ public final class PropertiesGetter {
     }
 
     /**
+     * Get a property that is know to be a double.
+     *
+     * @param key - the key used to index the desired configuration value
+     * @return value - the double configuration value we want to get
+     */
+    private static int getIntegerProperty(String key) {
+        String value = PROPERTIES.getProperty(key);
+        // if the key is not found, Properties will return null and we should return a default value
+        if (value == null) {
+            return -1;
+        }
+        return Double.parseDouble(value);
+    }
+
+    /**
      * @return the dimension of the simulation grid (both row and column since the grid is always
      * a square, for the moment)
      */
@@ -85,16 +94,11 @@ public final class PropertiesGetter {
     }
 
     /**
-     * @return the integer value used to represent the 'dead' state in Conway's Game of Life
+     * @return the default probability that a tree catches fire due to its neighbors in the
+     * spreading fire simulation
      */
-    public static int getConwayDeadStateValue() {
-        return getIntegerProperty(CONWAY_DEAD_KEY);
+    public static double getDefaultCatchFireProbability() {
+        return getDoubleProperty(DEFAULT_CATCH_FIRE_PROBABILITY_KEY);
     }
 
-    /**
-     * @return the integer value used to represent the 'live' state in Conway's Game of Life
-     */
-    public static int getConwayLiveStateValue() {
-        return getIntegerProperty(CONWAY_LIVE_KEY);
-    }
 }
