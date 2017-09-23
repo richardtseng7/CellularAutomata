@@ -1,8 +1,18 @@
 package cells;
 
 /**
- * The cell used in Schelling's Model of Segregation, as described at
- * http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/.
+ * Cell used in Schelling's Model of Segregation, as described at
+ * http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/. State transition rules for
+ * the cell:
+ *      1. A cell in the RED (BLUE) state moves to the location of any cell in the grid currently
+ *         in the empty state if the ratio of its neighbors that are also RED (BLUE) is less than
+ *         the satisfaction threshold.
+ *          - The 'movement' of a cell is implemented by swapping the states of the RED (BLUE)
+ *            cell with the state of the empty cell.
+ *      2. Otherwise, if the ratio of its neighbors in the same state is greater than the
+ *         satisfaction threshold, its state does not change.
+ *
+ * @author Ben Schwennesen
  */
 public class SegregationCell extends Cell {
 

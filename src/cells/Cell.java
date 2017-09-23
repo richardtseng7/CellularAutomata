@@ -79,11 +79,9 @@ public abstract class Cell {
      * the own calculation of its next state, according to the rules of the current simulation.
      *
      * @param adjacentCells - some number of cells adjacent to this cell in the on-screen grid;
-     *                      there should be either 3, 5, or 8 adjacent cells (uses varargs)
+     *                      there should be either 2, 3, 4, 5, or 8 adjacent cells (uses varargs)
      */
     public void addNeighbors(Cell... adjacentCells) {
-        assert neighbors.isEmpty() && (adjacentCells.length == 3 || adjacentCells.length == 5 ||
-                adjacentCells.length == 8);
         for (Cell neighbor : adjacentCells) {
             neighbors.add(neighbor);
         }
