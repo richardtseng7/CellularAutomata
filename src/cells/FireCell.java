@@ -29,8 +29,8 @@ public class FireCell extends Cell {
     private Random catchFireDecisionMaker = new Random();
 
     public FireCell(Object initialState) {
-        catchFireThreshold = PropertiesGetter.getDefaultCatchFireProbability();
         super(initialState);
+        setCatchFireProbability(PropertiesGetter.getDefaultCatchFireProbability());
     }
 
     public void calculateNextState() {
@@ -54,7 +54,19 @@ public class FireCell extends Cell {
         }
     }
 
-    public void setCatchFireProbability(double catchFireProbability) {
-        this.catchFireProbability = catchFireProbability;
+    public void setCatchFireProbability(double catchFireThreshold) {
+        this.catchFireThreshold = catchFireThreshold;
     }
+
+    /* FOR TESTING
+
+    public static void main(String[] args) {
+        FireCell test1 = new FireCell(State.TREE);
+        FireCell test2 = new FireCell(State.BURNING);
+        test1.setCatchFireProbability(1.0);
+        test1.addNeighbors(test2);
+
+        test1.calculateNextState();
+        System.out.println(test1.getCurrentState() + " " + test1.getNextState());
+    } */
 }

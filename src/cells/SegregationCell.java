@@ -1,5 +1,7 @@
 package cells;
 
+import resources.PropertiesGetter;
+
 /**
  * Cell used in Schelling's Model of Segregation, as described at
  * http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/. State transition rules for
@@ -24,9 +26,9 @@ public class SegregationCell extends Cell {
 
     private double satisfactionThreshold;
 
-    public SegregationCell(Object initialState, double satisfactionThreshold) {
+    public SegregationCell(Object initialState) {
         super(initialState);
-        setSatisfactionThreshold(satisfactionThreshold);
+        setSatisfactionThreshold(PropertiesGetter.getDefaultSatisfactionThreshold());
     }
 
     public void calculateNextState() {
@@ -36,8 +38,8 @@ public class SegregationCell extends Cell {
         }
         int numberOfSameStateNeighbors = countNeighborsInState(currentState);
         int numberOfNeighbors = getNumberOfNeighbors();
-        double percentageOfSameNeighbors = numberOfSameStateNeighbors / numberOfNeighbors;
-        if (percentageOfSameNeighbors < satisfactionThreshold) {
+        double neighborSimilarityRatio = numberOfSameStateNeighbors / numberOfNeighbors;
+        if (neighborSimilarityRatio < satisfactionThreshold) {
             setNextState(State.EMPTY);
         }
     }
@@ -45,4 +47,13 @@ public class SegregationCell extends Cell {
     public void setSatisfactionThreshold(double satisfactionThreshold) {
         this.satisfactionThreshold = satisfactionThreshold;
     }
+
+    /* FOR TESTING
+
+    public static void main(String[] args) {
+        SegregationCell test = new SegregationCell(State.BLUE);
+        test.addNeighbors(new SegregationCell(State.RED), new SegregationCell(State.RED));
+        test.calculateNextState();
+        System.out.println(test.getCurrentState() + " " + test.getNextState());
+    } */
 }
