@@ -3,8 +3,8 @@ package cells;
 import resources.PropertiesGetter;
 
 /**
- * The cell used in Conway's Game of Life simulation. This cell has only two states -- dead and
- * live. Rules this cell follows in transitioning states (pulled from Wikipedia):
+ * Cell used in Conway's Game of Life simulation. The cell has only two states -- dead and
+ * live. State transition rules for the cell: (pulled from Wikipedia):
  *      1. A live cell with less than two live neighbors dies (underpopulation).
  *      2. A live cell with more than three live neighbors dies (overpopulation).
  *      3. A dead cell with exactly three live neighbors reanimates (reproduction).
@@ -15,7 +15,7 @@ import resources.PropertiesGetter;
 public class ConwayCell extends Cell {
 
     /** Dead and live are the two types of states in the Game of Life */
-    private enum States {
+    private enum State {
         DEAD,
         LIVE
     }
