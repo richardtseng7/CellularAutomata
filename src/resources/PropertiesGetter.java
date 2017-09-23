@@ -14,18 +14,26 @@ import java.util.Properties;
  */
 public final class PropertiesGetter {
 
-    /** file storing the properties for the grid of cells */
     private static final String PROPERTIES_FILE = "simulations.properties";
-
-    /** use java.util.Properties as a base and extends its functionality */
     private static final Properties PROPERTIES;
 
-    /** keys used to access the configuration values in the .properties file */
-    /** grid configuration keys */
-    private static final String GRID_DIMENSION_KEY = "grid-dimension";
-    private static final String CELL_SIZE_KEY = "cell-size";
-    /** spreading-fire configuration keys */
-    private static final String DEFAULT_CATCH_FIRE_PROBABILITY_KEY = "default-catch-fire-rate";
+    /* keys used to access the configuration values in the .properties file */
+    /* grid configuration value keys */
+    private static final String GRID_DIMENSIONS_KEY = "grid-dimensions";
+    private static final String CELL_SIDE_LENGTH_KEY = "cell-side-length";
+    /* segregation configuration keys */
+    private static final String DEFAULT_SATISFACTION_THRESHOLD_KEY =
+            "default-satisfaction-threshold";
+    /* spreading-fire configuration keys */
+    private static final String DEFAULT_CATCH_FIRE_PROBABILITY_KEY =
+            "default-catch-fire-probability";
+    /* WaTor world configuration value keys */
+    private static final String DEFAULT_SHARK_INITIAL_ENERGY_LEVEL_KEY =
+            "default-shark-initial-energy-level";
+    private static final String DEFAULT_ENERGY_LOSS_PER_CHRONON_KEY =
+            "default-energy-loss-per-chronon";
+    private static final String DEFAULT_ENERGY_GAIN_PER_FISH_KEY =
+            "default-energy-gain-per-fish";
 
     /**
      * Blank, private constructor to ensure no other class tries to create an instance of this
@@ -41,8 +49,6 @@ public final class PropertiesGetter {
         try {
             PROPERTIES.load(PropertiesGetter.class.getClassLoader()
                     .getResourceAsStream(PROPERTIES_FILE));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,42 +69,47 @@ public final class PropertiesGetter {
         return Integer.parseInt(value);
     }
 
+    public static int getGridDimensions() {
+        return getIntegerProperty(GRID_DIMENSIONS_KEY);
+    }
+
+    public static int getCellSideLength() {
+        return getIntegerProperty(CELL_SIDE_LENGTH_KEY);
+    }
+
+
+    public static int getSharkDefaultInitialEnergyLevel() {
+        return getIntegerProperty(DEFAULT_SHARK_INITIAL_ENERGY_LEVEL_KEY);
+    }
+
+    public static int getDefaultEnergyLossPerChronon() {
+        return getIntegerProperty(DEFAULT_ENERGY_LOSS_PER_CHRONON_KEY);
+    }
+
+    public static int getDefaultEnergyGainPerFish() {
+        return getIntegerProperty(DEFAULT_ENERGY_GAIN_PER_FISH_KEY);
+    }
+
     /**
      * Get a property that is know to be a double.
      *
      * @param key - the key used to index the desired configuration value
      * @return value - the double configuration value we want to get
      */
-    private static int getIntegerProperty(String key) {
+    private static Double getDoubleProperty(String key) {
         String value = PROPERTIES.getProperty(key);
         // if the key is not found, Properties will return null and we should return a default value
         if (value == null) {
-            return -1;
+            return -1.0;
         }
         return Double.parseDouble(value);
     }
 
-    /**
-     * @return the dimension of the simulation grid (both row and column since the grid is always
-     * a square, for the moment)
-     */
-    public static int getGridDimension() {
-        return getIntegerProperty(GRID_DIMENSION_KEY);
-    }
-
-    /**
-     * @return the length of all sides of any type of cell (cells are square)
-     */
-    public static int getCellSize() {
-        return getIntegerProperty(CELL_SIZE_KEY);
-    }
-
-    /**
-     * @return the default probability that a tree catches fire due to its neighbors in the
-     * spreading fire simulation
-     */
     public static double getDefaultCatchFireProbability() {
         return getDoubleProperty(DEFAULT_CATCH_FIRE_PROBABILITY_KEY);
     }
 
+    public static double getDefaultSatisfactionThreshold() {
+        return getDoubleProperty(DEFAULT_SATISFACTION_THRESHOLD_KEY);
+    }
 }
