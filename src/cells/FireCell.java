@@ -27,7 +27,7 @@ public class FireCell extends Cell {
 
     private Random catchFireDecisionMaker = new Random();
 
-    public FireCell(Object initialState) {
+    public FireCell(State initialState) {
         super(initialState);
         setCatchFireProbability(PropertiesGetter.getDefaultCatchFireProbability());
     }
