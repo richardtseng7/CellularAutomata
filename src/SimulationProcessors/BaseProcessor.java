@@ -1,15 +1,15 @@
 package SimulationProcessors;
-
 import cells.Cell;
 
 public abstract class BaseProcessor {
 	
-	public void processCells(Cell[][]cells) {
+	public void processCells(Cell[][] cells) {
 		updateCellStates(cells);
-		transitionCells(cells);
+		transitionCellStates(cells);
 	}
+	
+	public abstract void updateCellStates(Cell[][] cells);
+	 
+	public abstract void transitionCellStates(Cell[][] cells);
 
-	abstract public void transitionCells(Cell[][] cells);
-
-	abstract public void updateCellStates(Cell[][] cells);
 }

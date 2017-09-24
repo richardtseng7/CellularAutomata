@@ -1,10 +1,24 @@
 package SimulationProcessors;
 
-public class FireProcessor {
+import cells.Cell;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class FireProcessor extends BaseProcessor{
 
+	public void updateCellStates(Cell[][] cells) {
+		for(int row=0;row<cells.length;row++) {
+			for(int col=0;col<cells[row].length;col++) {
+				cells[row][col].calculateNextState();
+			}
+		}
+		
+	}
+
+	public void transitionCellStates(Cell[][] cells) {
+		for(int row=0;row<cells.length;row++) {
+			for(int col=0;col<cells[row].length;col++) {
+				cells[row][col].transitionState();
+			}
+		}
 	}
 
 }
