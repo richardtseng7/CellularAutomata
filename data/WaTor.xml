@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<simulation type="WATOR">
+	<parameter>
+		<simulationType>WaTor</simulationType>
+		<cellType>WaTorCell</cellType>
+		<numberOfColumns>6</numberOfColumns>
+		<numberOfRows>6</numberOfRows>
+	</parameter>
+	<grid>
+		<row>001100</row>
+		<row>011000</row>
+		<row>110000</row>
+		<row>011000</row>
+		<row>001100</row>
+		<row>000110</row>
+	</grid>
+</simulation>
