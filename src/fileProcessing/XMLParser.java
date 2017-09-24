@@ -27,8 +27,9 @@ import java.util.Map;
 
 public class XMLParser {
 
-	//Should go into a Simulation class
-	public static final String SIMULATION_TYPE = "GameOfLife";
+	public enum simulationType{
+		GAMEOFLIFE, SEGREGATION, FIRE, WATOR
+	}
 	public static final List<String> DATA_FIELDS = Arrays.asList(new String[] {
 			"simulationType",
 			"cellType",
@@ -58,7 +59,7 @@ public class XMLParser {
      */
     public void parseXMLFile(File xmlFile) {
     		Element root = getRootElement(xmlFile);
-        if (!isValidFile(root, SIMULATION_TYPE)) {
+        if (!isValidFile(root)) {
             throw new XMLException("XML file does not represent a supported simulation.");
         }
 		try {
@@ -116,8 +117,13 @@ public class XMLParser {
     }
 
     // Returns if this is a valid XML file for the specified object type
-    private boolean isValidFile (Element root, String type) {
-        return getAttribute(root, "type").equals(type);
+    private boolean isValidFile (Element root) { 
+    		for (simulationType s : simulationType.values()) {
+    			if (getAttribute(root, "type").equals(s.name())) {
+    				return true;
+    			}
+    		}
+        return false;
     }
 
     // Get value of Element's attribute

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<simulation type="GameOfLife">
+<simulation type="GAMEOFLIFE">
 	<parameter>
 		<simulationType>GameOfLife</simulationType>
 		<cellType>ConwayCell</cellType>
