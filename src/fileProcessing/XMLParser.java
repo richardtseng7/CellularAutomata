@@ -95,7 +95,7 @@ public class XMLParser {
     		int numRows = Integer.parseInt(param.get("numberOfRows"));
 		int numColumns = Integer.parseInt(param.get("numberOfColumns"));
 		
-		Class<?> myClass = Class.forName(param.get("cellType"));
+		//Class<?> myClass = Class.forName(param.get("cellType"));
 		
 		grid = new String[numRows][numColumns];
 		NodeList g = getChildren(document, "grid");
