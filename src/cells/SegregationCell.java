@@ -1,6 +1,6 @@
 package cells;
 
-import resources.PropertiesGetter;
+import utilities.PropertiesGetter;
 
 /**
  * Cell used in Schelling's Model of Segregation, as described at

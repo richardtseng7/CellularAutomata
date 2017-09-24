@@ -1,7 +1,5 @@
 package cells;
 
-import resources.PropertiesGetter;
-
 /**
  * Cell used in Conway's Game of Life simulation. The cell has only two states -- dead and
  * live. State transition rules for the cell: (pulled from Wikipedia):
