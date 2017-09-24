@@ -20,13 +20,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The purpose of this class is to parse XML files.
+ * The purpose of this class is to parse XML files. The parameters are stored in a HashMap
+ * and the grid is filled as indicated by the given XML file. The XML file must have root attribute
+ * named type, which specifies the simulation type. Otherwise, an exception is thrown.
  * 
  * @author Richard Tseng
  */
 
 public class XMLParser {
-
+	
 	public enum simulationType{
 		GAMEOFLIFE, SEGREGATION, FIRE, WATOR
 	}
@@ -40,7 +42,7 @@ public class XMLParser {
     // keep only one documentBuilder because it is expensive to make and can reset it before parsing
     private final DocumentBuilder DOCUMENT_BUILDER;
     
-    //A hashmap of the parameters read in from the XML file
+    //A HashMap of the parameters read in from the XML file
     private Map<String, String> param = new HashMap<String, String>();
     
     //2D array of integers representing the cells in the grid
@@ -73,6 +75,9 @@ public class XMLParser {
 		}
     }
     
+    /*
+     * Stores parameters in the XML file into HashMap of parameters
+     */
     private void readParameters(Document document) {
 		NodeList parameters = getChildren(document, "parameter");
     		for (int i = 0; i < parameters.getLength(); i++) {
@@ -83,6 +88,9 @@ public class XMLParser {
     		}
     }
     
+    /*
+     * Initializes grid and fills with integers
+     */
     private void makeGrid(Document document) {
     		int numRows = Integer.parseInt(param.get("numberOfRows"));
 		int numColumns = Integer.parseInt(param.get("numberOfColumns"));
@@ -99,6 +107,9 @@ public class XMLParser {
 		}
     }
     
+    /*
+     * Returns NodeList of elements of a specified tagName  
+     */
     private NodeList getChildren(Document document, String tagName) {
     		NodeList nodeList = document.getElementsByTagName(tagName);
     		return nodeList.item(0).getChildNodes();
