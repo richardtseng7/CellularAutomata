@@ -31,7 +31,7 @@ public class FishCell extends WaTorCell {
         setNextState(moveToEmptyNeighborIfPossible());
     }
 
-    protected State moveToEmptyNeighborIfPossible() {
+    private State moveToEmptyNeighborIfPossible() {
         int numberEmptyNeighbors = countNeighborsInState(State.WATER);
         if (numberEmptyNeighbors > 0) {
             return reproduceIfPossible();
@@ -49,17 +49,6 @@ public class FishCell extends WaTorCell {
             return State.valueOf(((State)getCurrentState()).name());
         }
     }
-
-    /*
-     * "Move" another cell into this cell by replacing this cell's status info with that of the
-     * cell moving into it.
-     *
-     * @param neighbor - the cell moving into this one
-     *
-    public void assumeStatusOf(FishCell neighbor) {
-        this.numberOfChrononsSurvivedSinceLastReproduction = neighbor
-                .numberOfChrononsSurvivedSinceLastReproduction;
-    }*/
 
     public void incrementChrononsSurvived() {
         numberOfChrononsSurvivedSinceLastReproduction++;
