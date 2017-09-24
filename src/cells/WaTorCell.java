@@ -31,7 +31,7 @@ import utilities.PropertiesGetter;
  */
 public class WaTorCell extends Cell {
 
-    private enum State {
+    public enum State {
         FISH,
         SHARK,
         WATER;

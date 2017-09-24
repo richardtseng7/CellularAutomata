@@ -12,7 +12,7 @@ package cells;
  */
 public class ConwayCell extends Cell {
 
-    private enum State {
+    public enum State {
         DEAD,
         LIVE
     }
