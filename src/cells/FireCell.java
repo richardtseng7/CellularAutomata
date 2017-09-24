@@ -17,7 +17,7 @@ import java.util.Random;
  */
 public class FireCell extends Cell {
 
-    private enum State {
+    public enum State {
         BURNING,
         TREE,
         EMPTY
