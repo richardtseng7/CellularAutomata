@@ -18,7 +18,7 @@ import utilities.PropertiesGetter;
  */
 public class SegregationCell extends Cell {
 
-    private enum State {
+    public enum State {
         BLUE,
         RED,
         EMPTY
