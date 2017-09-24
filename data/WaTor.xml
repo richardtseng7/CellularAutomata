@@ -7,11 +7,11 @@
 		<numberOfRows>6</numberOfRows>
 	</parameter>
 	<grid>
-		<row>001100</row>
-		<row>011000</row>
-		<row>110000</row>
-		<row>011000</row>
-		<row>001100</row>
-		<row>000110</row>
+		<row>FISH SHARK WATER WATER WATER WATER</row>
+		<row>WATER WATER SHARK SHARK FISH FISH</row>
+		<row>FISH FISH FISH FISH WATER WATER</row>
+		<row>FISH FISH WATER WATER FISH FISH</row>
+		<row>WATER FISH WATER FISH WATER FISH</row>
+		<row>WATER WATER WATER WATER SHARK WATER</row>
 	</grid>
 </simulation>

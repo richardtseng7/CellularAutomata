@@ -46,7 +46,7 @@ public class XMLParser {
     private Map<String, String> param = new HashMap<String, String>();
     
     //2D array of integers representing the cells in the grid
-    private Integer[][] grid;
+    private String[][] grid;
     
     /**
      * Create a parser for XML files of given type.
@@ -94,14 +94,18 @@ public class XMLParser {
     private void makeGrid(Document document) {
     		int numRows = Integer.parseInt(param.get("numberOfRows"));
 		int numColumns = Integer.parseInt(param.get("numberOfColumns"));
-		grid = new Integer[numRows][numColumns];
+		
+		Class<?> myClass = Class.forName(param.get("cellType"));
+		
+		grid = new String[numRows][numColumns];
 		NodeList g = getChildren(document, "grid");
 		for (int i = 0; i < numRows*2; i++) {
 			Node row = g.item(i);
 			if (row.getNodeType() == Node.ELEMENT_NODE) {
-				String cells = row.getTextContent();
+				String r = row.getTextContent();
+				String[] cells = r.split(" ");
 				for (int j = 0; j < numColumns; j++) {
-					grid[i/2][j] = cells.charAt(j) - '0';
+					grid[i/2][j] = cells[j];
 				}	
 			}	
 		}
@@ -162,7 +166,7 @@ public class XMLParser {
     /*
      * Returns grid of cells
      */
-    public Integer[][] getGrid(){
+    public String[][] getGrid(){
     		return grid;
     }
 }

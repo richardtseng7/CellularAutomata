@@ -8,9 +8,9 @@ import cells.Cell;
 
 public class test {
 	
-	public static final String path = "data/GoL.xml";
+	public static final String path = "data/Fire.xml";
 	public static Map<String, String> myParameters = new HashMap<String, String>();
-	public static Integer[][] myGrid;
+	public static String[][] myGrid;
 	
 	public static void main(String[] args) {
 		//In our real implementation, will be using a FileChooser
@@ -31,11 +31,9 @@ public class test {
 		//print out grid
 		for (int i = 0; i < myGrid.length; i++) {
 			for (int j = 0; j < myGrid[0].length; j++) {
-				if (myGrid[i][j] == 1) {
-					System.out.print("ALIVE");
-				} else {
-					System.out.print("DEAD");
-				}
+				
+				System.out.print(myGrid[i][j]);
+				
 				System.out.print("\t");
 			}
 			System.out.print("\n");

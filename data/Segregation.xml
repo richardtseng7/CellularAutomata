@@ -7,11 +7,11 @@
 		<numberOfRows>6</numberOfRows>
 	</parameter>
 	<grid>
-		<row>001100</row>
-		<row>011000</row>
-		<row>110000</row>
-		<row>011000</row>
-		<row>001100</row>
-		<row>000110</row>
+		<row>BLUE RED RED RED BLUE EMPTY</row>
+		<row>RED RED RED BLUE BLUE BLUE</row>
+		<row>EMPTY BLUE RED RED BLUE BLUE</row>
+		<row>RED BLUE BLUE BLUE BLUE EMPTY</row>
+		<row>BLUE BLUE BLUE BLUE BLUE BLUE</row>
+		<row>RED BLUE BLUE BLUE RED RED</row>
 	</grid>
 </simulation>

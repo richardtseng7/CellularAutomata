@@ -7,11 +7,11 @@
 		<numberOfRows>6</numberOfRows>
 	</parameter>
 	<grid>
-		<row>001100</row>
-		<row>011000</row>
-		<row>110000</row>
-		<row>011000</row>
-		<row>001100</row>
-		<row>000110</row>
+		<row>DEAD ALIVE ALIVE ALIVE DEAD DEAD</row>
+		<row>DEAD ALIVE ALIVE DEAD DEAD DEAD</row>
+		<row>ALIVE ALIVE DEAD DEAD DEAD DEAD</row>
+		<row>DEAD ALIVE ALIVE DEAD DEAD DEAD</row>
+		<row>DEAD DEAD ALIVE ALIVE DEAD DEAD</row>
+		<row>DEAD DEAD DEAD ALIVE ALIVE DEAD</row>
 	</grid>
 </simulation>

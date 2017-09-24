@@ -7,11 +7,11 @@
 		<numberOfRows>6</numberOfRows>
 	</parameter>
 	<grid>
-		<row>001100</row>
-		<row>011000</row>
-		<row>110000</row>
-		<row>011000</row>
-		<row>001100</row>
-		<row>000110</row>
+		<row>BURNING TREE EMPTY TREE TREE TREE</row>
+		<row>TREE TREE TREE TREE TREE TREE</row>
+		<row>EMPTY EMPTY TREE TREE BURNING TREE</row>
+		<row>TREE TREE TREE TREE TREE TREE</row>
+		<row>BURNING EMPTY EMPTY TREE TREE TREE</row>
+		<row>TREE TREE TREE TREE EMPTY EMPTY</row>
 	</grid>
 </simulation>
