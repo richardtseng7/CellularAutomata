@@ -1,8 +1,7 @@
 package cells;
 
-import resources.PropertiesGetter;
+import utilities.PropertiesGetter;
 
-import java.util.Properties;
 import java.util.Random;
 
 /**
