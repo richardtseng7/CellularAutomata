@@ -38,10 +38,14 @@ public class FireCell extends Cell {
             for (Cell neighbor : getNeighbors()) {
                 if (neighbor.getCurrentState() == State.BURNING) {
                     setNextState(catchFireOrNot());
+                    break;
                 }
             }
         } else if (currentState == State.BURNING) {
             setNextState(State.EMPTY);
+        } else {
+            // current state is EMPTY
+            setNextState(currentState);
         }
     }
 

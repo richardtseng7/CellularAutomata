@@ -35,13 +35,14 @@ public class SegregationCell extends Cell {
     public void calculateNextState() {
         State currentState = (State) getCurrentState();
         if (currentState == State.EMPTY) {
-            return;
-        }
-        int numberOfSameStateNeighbors = countNeighborsInState(currentState);
-        int numberOfNeighbors = getNumberOfNeighbors();
-        double neighborSimilarityRatio = numberOfSameStateNeighbors / numberOfNeighbors;
-        if (neighborSimilarityRatio < satisfactionThreshold) {
             setNextState(State.EMPTY);
+        } else {
+            int numberOfSameStateNeighbors = countNeighborsInState(currentState);
+            int numberOfNeighbors = getNumberOfNeighbors();
+            double neighborSimilarityRatio = numberOfSameStateNeighbors / numberOfNeighbors;
+            if (neighborSimilarityRatio < satisfactionThreshold) {
+                setNextState(State.EMPTY);
+            }
         }
     }
     
