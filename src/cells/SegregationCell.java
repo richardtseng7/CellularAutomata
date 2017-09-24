@@ -18,7 +18,7 @@ import utilities.PropertiesGetter;
  */
 public class SegregationCell extends Cell {
 
-    private enum State {
+    public enum State {
         BLUE,
         RED,
         EMPTY
@@ -48,12 +48,12 @@ public class SegregationCell extends Cell {
         this.satisfactionThreshold = satisfactionThreshold;
     }
 
-    /* FOR TESTING
+    /* FOR TESTING */
 
     public static void main(String[] args) {
-        SegregationCell test = new SegregationCell(State.BLUE);
+        Cell test = new SegregationCell(State.BLUE);
         test.addNeighbors(new SegregationCell(State.RED), new SegregationCell(State.RED));
         test.calculateNextState();
         System.out.println(test.getCurrentState() + " " + test.getNextState());
-    } */
+    }
 }
