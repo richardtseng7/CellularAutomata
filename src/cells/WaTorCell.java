@@ -1,6 +1,6 @@
 package cells;
 
-import resources.PropertiesGetter;
+import utilities.PropertiesGetter;
 
 /**
  * Cell used in the WaTor World (also known as predator-prey) simulation. State transition rules for
@@ -31,7 +31,7 @@ import resources.PropertiesGetter;
  */
 public class WaTorCell extends Cell {
 
-    private enum State {
+    public enum State {
         FISH,
         SHARK,
         WATER;

@@ -1,8 +1,7 @@
 package cells;
 
-import resources.PropertiesGetter;
+import utilities.PropertiesGetter;
 
-import java.util.Properties;
 import java.util.Random;
 
 /**
@@ -18,7 +17,7 @@ import java.util.Random;
  */
 public class FireCell extends Cell {
 
-    private enum State {
+    public enum State {
         BURNING,
         TREE,
         EMPTY
