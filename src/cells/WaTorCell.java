@@ -71,6 +71,9 @@ public class WaTorCell extends Cell {
             setNextState(determineNextStateForFish(currentState));
         } else if (currentState == State.SHARK) {
             setNextState(determineNextStateForShark(currentState));
+        } else {
+            // current state is WATER
+            setNextState(currentState);
         }
     }
 

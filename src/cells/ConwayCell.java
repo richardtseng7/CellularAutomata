@@ -27,8 +27,9 @@ public class ConwayCell extends Cell {
             setNextState(State.DEAD);
         } else if (getCurrentState() == State.DEAD && liveNeighborCount == 3) {
             setNextState(State.LIVE);
+        } else {
+            setNextState(getCurrentState());
         }
-        // otherwise, next state is already equal to current state, hence no need to update it
     }
 
     /* FOR TESTING
