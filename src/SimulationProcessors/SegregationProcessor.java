@@ -7,6 +7,7 @@ import cells.Cell;
 import cells.SegregationCell.State;
 
 public class SegregationProcessor extends BaseProcessor{
+	
 	/* All empty cells currently in the grid */	
 	private ArrayList<Point2D> emptyCells;
 	
