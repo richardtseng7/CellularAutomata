@@ -33,6 +33,8 @@ public final class PropertiesGetter {
             "default-energy-loss-per-chronon";
     private static final String DEFAULT_ENERGY_GAIN_PER_FISH_KEY =
             "default-energy-gain-per-fish";
+    private static final String DEFAULT_CHRONONS_NEEDED_TO_REPRODUCE =
+            "default-chronons-needed-to-reproduce";
 
     /**
      * Blank, private constructor to ensure no other class tries to create an instance of this
@@ -87,6 +89,10 @@ public final class PropertiesGetter {
 
     public static int getDefaultEnergyGainPerFish() {
         return getIntegerProperty(DEFAULT_ENERGY_GAIN_PER_FISH_KEY);
+    }
+
+    public static int getDefaultChrononsNeededToReproduce() {
+        return getIntegerProperty(DEFAULT_CHRONONS_NEEDED_TO_REPRODUCE);
     }
 
     /**
