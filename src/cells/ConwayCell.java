@@ -17,7 +17,7 @@ public class ConwayCell extends Cell {
         LIVE
     }
 
-    public ConwayCell(Object initialState) {
+    public ConwayCell(State initialState) {
         super(initialState);
     }
 
