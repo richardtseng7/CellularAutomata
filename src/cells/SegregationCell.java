@@ -28,6 +28,7 @@ public class SegregationCell extends Cell {
 
     public SegregationCell(Object initialState) {
         super(initialState);
+        //this.setSatisfactionThreshold(0.5);
         setSatisfactionThreshold(PropertiesGetter.getDefaultSatisfactionThreshold());
     }
 
